@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>组合数学学习笔记 | Gridea</title>
+<link rel="shortcut icon" href="https://Lvansh.github.io/favicon.ico?v=1660910698810">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Lvansh.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="组合数学学习笔记 | Gridea - Atom Feed" href="https://Lvansh.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="前言
+距离初赛仅剩39天。
+这个暑假好像摸摸鱼、划划水就过去了，都不知道自己学了些什么。
+今天上魔法物理课讲起了希腊字母、导数……然后我连多项式展开都不会了
+因为多项式展开用到了C，那么就来学习一下组合数吧
+正文
+加法原理 and 乘法原理..." />
+    <meta name="keywords" content="数学,OI" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Lvansh.github.io">
+  <img class="avatar" src="https://Lvansh.github.io/images/avatar.png?v=1660910698810" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              组合数学学习笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-08-08
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://Lvansh.github.io/tag/o9J0Wg7-L/" class="post-tag">
+                  # 数学
+                </a>
+              
+                <a href="https://Lvansh.github.io/tag/VfjauDSMAZ/" class="post-tag">
+                  # OI
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="前言">前言</h1>
+<p>距离初赛仅剩39天。<br>
+这个暑假好像摸摸鱼、划划水就过去了，都不知道自己学了些什么。<br>
+今天上<s>魔法</s>物理课讲起了希腊字母、导数……<s>然后我连多项式展开都不会了</s><br>
+因为多项式展开用到了C，那么就来学习一下组合数吧</p>
+<h1 id="正文">正文</h1>
+<h2 id="加法原理-and-乘法原理">加法原理 and 乘法原理</h2>
+<p>对于这两个词大家应该并不陌生，所以我举个栗子带过</p>
+<h3 id="加法原理">加法原理</h3>
+<p>你面前有3个苹果、4个梨子、5个车厘子<s>核</s>，你要吃<strong>1个</strong>水果，你有几种吃法？<br>
+很显然3+4+5=12种，这就是加法原理</p>
+<h3 id="乘法原理">乘法原理</h3>
+<p>你有2件衣服、3条裤子、3双鞋子，现在你要出门，你有多少种穿搭方法？<br>
+2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 3 = 18种，这就是乘法原理</p>
+<h3 id="总结">总结</h3>
+<p>加法原理是<strong>分类</strong>完成<br>
+乘法原理是<strong>分步</strong>完成</p>
+<h2 id="排列">排列</h2>
+<h3 id="线排列">线排列</h3>
+<p>从n个东西中取m个排一排，有多少种排法？</p>
+<p>表示为：P(n,m) or <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>P</mi><mi>n</mi><mi>m</mi></msubsup></mrow><annotation encoding="application/x-tex">P^{m}_{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>公式推导：<img src="https://Lvansh.github.io/post-images/1659975708730.gif" alt="" loading="lazy"><br>
+也就是P(n,m)=<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>×</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mi>m</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">n \times (n-1) \times (n-2) \times ... \times (n-m+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><br>
+<s>九敏动画做的真的好累</s></p>
+<p><strong>特别地</strong>：如果取n个，也就是全部，则有n!种方法<br>
+<em>注：n! = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> ... <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> ( n-1 ) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> n</em></p>
+<h3 id="相异元素可重排列-and-不全相异元素的排列">相异元素可重排列 and 不全相异元素的排列</h3>
+<p>听上去高大上，实际……<br>
+相异：相互不同的元素，可以重复选择，排一排，有多少种排列？<br>
+也就是，n个东西，可以重复地选m个，排一排。</p>
+<p>对于第1个东西，有n种选法，第2个，也是n种，所以就是m个n相乘，就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">n^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>不全相异：举个栗子好说一点，你有3个黄球，4个蓝球，5个红，排一排，几种？<br>
+若每个球都不一样，也就是不考虑重复，则是(3+4+5)!=(某个特别大的数字)<br>
+但是单独考虑每种颜色，在<strong>这种</strong>颜色中，球的排法有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>!种，并且也重复了这么多次。那么就要除掉<s>很显然不用减法，懒得解释了</s><br>
+所以最终答案应该是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mo>(</mo><mn>3</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>5</mn><mo>)</mo><mo>!</mo></mrow><mrow><mn>3</mn><mo>!</mo><mo>×</mo><mn>4</mn><mo>!</mo><mo>×</mo><mn>5</mn><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">(3+4+5)! \over 3! \times 4! \times 5!</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.413331em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mclose mtight">!</span><span class="mbin mtight">×</span><span class="mord mtight">4</span><span class="mclose mtight">!</span><span class="mbin mtight">×</span><span class="mord mtight">5</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">3</span><span class="mbin mtight">+</span><span class="mord mtight">4</span><span class="mbin mtight">+</span><span class="mord mtight">5</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><s>好像也没什么难的</s></p>
+<h3 id="圆排列">圆排列</h3>
+<p>注意在之前所有的例子中，最后都用的是“排一排”，而对于圆排列，则是排成一个圆</p>
+<p>没啥区别<br>
+123456<br>
+234561<br>
+345612<br>
+……<br>
+连成圆后都是一样的</p>
+<p>对于其中一个东西来说，拿1举例，他在1-6号位上重复了6次<br>
+然而<strong>每一种</strong>排法都重复了m次<br>
+于是对于圆排列，方案数=P(n,m)/m</p>
+<h2 id="组合">组合</h2>
+<p>虽说“排列组合”这个词往往都是连着读，讲多了自然很顺口。但组合并不完全等于排列~~(废话)~~<br>
+组合是选东西出来成一组，无论顺序如何，他们是一组就行了。<br>
+但是排列不同，排列讲顺序，就像排队一样，有顺序的。<br>
+<s>（这个似乎应该放在开头讲</s></p>
+<h3 id="非重组合">非重组合</h3>
+<p>选出来的东西不能重复的组合<br>
+那么有多少种呢？<br>
+我们可以类比一下圆排列，圆排列是对于每一种排列都重复了M次（一个圆）。那么不需用考虑顺序的组合呢？<br>
+每一种组合重复的次数，应该就是这m个数能组成组合的个数，也就是这m个数的线排列个数：m!<br>
+所以非重组合的个数应该是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi mathvariant="normal">其</mi><mi mathvariant="normal">线</mi><mi mathvariant="normal">排</mi><mi mathvariant="normal">列</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">数</mi></mrow><mrow><mi>m</mi><mo>!</mo><mi mathvariant="normal">（</mi><mi mathvariant="normal">重</mi><mi mathvariant="normal">复</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">次</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">）</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">其线排列的个数 \over m!（重复的次数）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.739em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.394em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mclose mtight">!</span><span class="mord cjk_fallback mtight">（</span><span class="mord cjk_fallback mtight">重</span><span class="mord cjk_fallback mtight">复</span><span class="mord cjk_fallback mtight">的</span><span class="mord cjk_fallback mtight">次</span><span class="mord cjk_fallback mtight">数</span><span class="mord cjk_fallback mtight">）</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">其</span><span class="mord cjk_fallback mtight">线</span><span class="mord cjk_fallback mtight">排</span><span class="mord cjk_fallback mtight">列</span><span class="mord cjk_fallback mtight">的</span><span class="mord cjk_fallback mtight">个</span><span class="mord cjk_fallback mtight">数</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>那公式自然就很简单了，就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>m</mi></msubsup><mo>=</mo><mfrac><mrow><mi>n</mi><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>×</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>×</mo><mo>(</mo><mi>n</mi><mo>−</mo><mi>m</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mrow><mi>m</mi><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">C_n^m = {n \times (n-1) \times (n-2) \times ... \times (n-m+1) \over  m!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">×</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span><span class="mbin mtight">×</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mbin mtight">×</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mbin mtight">×</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>   ，<s>用语言文字描述就是：从n开始往前乘m个数，然后除以m的阶乘</s><br>
+<em>特别地：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mn>0</mn></msubsup><mo>=</mo><msubsup><mi>C</mi><mi>n</mi><mi>n</mi></msubsup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C_n^0=C_n^n=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.061108em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，n个东西中选0个或者选n个，只有1种选法</em><br>
+<em><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>m</mi></msubsup><mo>=</mo><msubsup><mi>C</mi><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mi>m</mi></mrow></msubsup><mi mathvariant="normal">，</mi><mi>n</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">东</mi><mi mathvariant="normal">西</mi><mi mathvariant="normal">中</mi><mi mathvariant="normal">选</mi><mi>m</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">或</mi><mi mathvariant="normal">者</mi><mi>m</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">不</mi><mi mathvariant="normal">选</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">选</mi><mi mathvariant="normal">法</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">种</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">是</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">样</mi><mi mathvariant="normal">的</mi></mrow><annotation encoding="application/x-tex">C_n^m=C_n^{n-m}，n个东西中选m个，或者m个不选，选法的种数是一样的</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.0183309999999999em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">东</span><span class="mord cjk_fallback">西</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">选</span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">或</span><span class="mord cjk_fallback">者</span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">选</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">选</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">种</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">样</span><span class="mord cjk_fallback">的</span></span></span></span></em></p>
+<h3 id="可重复组合">可重复组合</h3>
+<p>选出来的东西可以重复<br>
+那么有多少种呢？<br>
+假如我们可以重复地拿m个出来，将这个操作看成一次操作，那么就是做了1次在n个中拿m个东西<br>
+但是因为是可以重复的，也就是说每次拿完东西后得放回去，那么就是在n+m个东西中拿m个<br>
+可是最后一次拿完放不放回去对于结果是没有影响的，所以就是在n+m-1个东西中拿m个<br>
+记可重复组合为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>H</mi><mi>n</mi><mi>m</mi></msubsup></mrow><annotation encoding="application/x-tex">H_n^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>，那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>H</mi><mi>n</mi><mi>m</mi></msubsup><mo>=</mo><msubsup><mi>C</mi><mrow><mi>n</mi><mo>+</mo><mi>m</mi><mo>−</mo><mn>1</mn></mrow><mi>m</mi></msubsup></mrow><annotation encoding="application/x-tex">H_n^m = C_{n+m-1}^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93033em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4530000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.9897689999999999em;vertical-align:-0.30643899999999996em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6643919999999999em;"><span style="top:-2.451892em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.30643899999999996em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>至此，最基本的东西已经学完了，那么来练习一下叭</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E6%AD%A3%E6%96%87">正文</a>
+<ul>
+<li><a href="#%E5%8A%A0%E6%B3%95%E5%8E%9F%E7%90%86-and-%E4%B9%98%E6%B3%95%E5%8E%9F%E7%90%86">加法原理 and 乘法原理</a>
+<ul>
+<li><a href="#%E5%8A%A0%E6%B3%95%E5%8E%9F%E7%90%86">加法原理</a></li>
+<li><a href="#%E4%B9%98%E6%B3%95%E5%8E%9F%E7%90%86">乘法原理</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%92%E5%88%97">排列</a>
+<ul>
+<li><a href="#%E7%BA%BF%E6%8E%92%E5%88%97">线排列</a></li>
+<li><a href="#%E7%9B%B8%E5%BC%82%E5%85%83%E7%B4%A0%E5%8F%AF%E9%87%8D%E6%8E%92%E5%88%97-and-%E4%B8%8D%E5%85%A8%E7%9B%B8%E5%BC%82%E5%85%83%E7%B4%A0%E7%9A%84%E6%8E%92%E5%88%97">相异元素可重排列 and 不全相异元素的排列</a></li>
+<li><a href="#%E5%9C%86%E6%8E%92%E5%88%97">圆排列</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%84%E5%90%88">组合</a>
+<ul>
+<li><a href="#%E9%9D%9E%E9%87%8D%E7%BB%84%E5%90%88">非重组合</a></li>
+<li><a href="#%E5%8F%AF%E9%87%8D%E5%A4%8D%E7%BB%84%E5%90%88">可重复组合</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Lvansh.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Lvansh.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
